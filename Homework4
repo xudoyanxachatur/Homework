@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Xndir4
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 3;
+            int row = n;
+            int col = n;
+
+            int result = Arrays(n);
+            Console.WriteLine(result);
+
+        }
+        public static int Arrays(int n)
+        {
+
+
+            int secondDiagonalBellowSum = 0;
+            int[,] array = new int[n, n];
+            Random random = new Random();
+
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i, j] = random.Next(1, 10);
+                    Console.Write(array[i, j] + "  ");
+                }
+                Console.WriteLine();
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+
+                    if (i + j > n - 1)
+                    {
+                        secondDiagonalBellowSum += array[i, j];
+                    }
+
+
+                }
+
+            }
+            Console.Write($"\n\nThe sum of all elements below the secondary diagonal = ");
+
+            return secondDiagonalBellowSum;
+
+        }
+    }
+}
