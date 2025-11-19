@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +14,19 @@ namespace Xndir3
         {
             int row = 3;
             int col = 4;
+
+            int result = Arrays(row,col);
+            Console.WriteLine(result);
+
+        }
+        public static int Arrays(int n,int m)
+        {
+            int row = n;
+            int col = m;
             double mainDiagonalSum = 0;
             double secondDiagonalSum = 0;
             double ratioSums = 1;
-            int[,] array = new int[row, col];
+                        int[,] array = new int[n, m];
             Random random = new Random();
 
 
@@ -42,12 +53,10 @@ namespace Xndir3
             Console.WriteLine($"\nSum of the secondary diagonal= {secondDiagonalSum}");
 
             ratioSums = mainDiagonalSum / secondDiagonalSum;
-            Console.WriteLine($"\n\n The ratio of these sums = {ratioSums}");
+            Console.WriteLine($"\n\nThe ratio of these sums = {ratioSums}");
+
+            return (int)ratioSums;
 
         }
-
-
-
-
     }
 }
