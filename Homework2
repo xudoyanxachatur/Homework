@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Xndir2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 9;
+
+            int[] result = array(n);
+
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.WriteLine($"{i} --> {result[i]}");
+
+            }
+        }
+        public static int[] array(int n)
+        {
+
+
+           
+            int[] array = new int[n];
+            int[] newArray = new int[10];
+            Random random = new Random();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(1, 10);
+                Console.Write(array[i] + " ");
+
+                newArray[array[i]]++;
+            }
+            Console.WriteLine();
+
+
+            return newArray;
+
+
+        }
+    }
+}
