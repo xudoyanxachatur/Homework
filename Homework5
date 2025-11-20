@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Xndir5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 3;
+            int m = 4;
+            int i = 0;
+            int j = 0;
+            int row = n;
+            int col = m;
+
+            int result = Arrays(n, m, i, j);
+            Console.WriteLine(result);
+
+        }
+        public static int Arrays(int n, int m, int i, int j)
+        {
+
+
+            int sum = 0;
+            int[,] array = new int[n, m];
+            Random random = new Random();
+
+
+            for (int x = 0; x < array.GetLength(0); x++)
+            {
+                for (int y = 0; y < array.GetLength(1); y++)
+                {
+                    array[x, y] = random.Next(1, 10);
+                    Console.Write(array[x, y] + "  ");
+                }
+                Console.WriteLine();
+            }
+
+            for (int x = i - 1; x <= i + 1; x++)
+            {
+                for (int y = j - 1; y <= j + 1; y++)
+                {
+                    if (x < n && x >= 0 && y < m && y >= 0 && (x != i || y != j))
+                    {
+                        sum += array[x, y];
+                    }
+                }
+
+            }
+
+
+            return sum;
+
+        }
+    }
+}
